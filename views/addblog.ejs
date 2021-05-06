@@ -20,7 +20,11 @@
        <li><%= error.msg %></li>
        <% }) %>
    </ul>
-   <% } %>
+   <% } else if(!locals.errors){ %>
+     <ul class="alert alert-success">
+        <li><%- messages() %></li>
+      </ul>
+    <% } %>
 
    <form class="" action="/blog/add" method="post">
      <div class="mb-3">
@@ -41,8 +45,13 @@
 
  </div>
  <script>
-                        CKEDITOR.replace( 'description' );
-                </script>
+    CKEDITOR.replace( 'description' ); </script>
+    <script>
+    $(function(){
+      $("#messages").addClass('alert alert-success');
+    });
+
+</script>
 
 </body>
 
