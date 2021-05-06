@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-utf-8">
   <title>
-    <%= title %>
+    Add Blog
   </title>
   <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
 
@@ -14,9 +14,15 @@
   <%- include layout %>
   <div class="container">
    <h2 align='center'>เขียนบทความ</h2>
+   <% if(locals.errors){ %>
+   <ul class="alert alert-danger">
+     <% Object.values(errors).forEach(function(error){ %>
+       <li><%= error.msg %></li>
+       <% }) %>
+   </ul>
+   <% } %>
 
-
-   <form class="" action="" method="post">
+   <form class="" action="/blog/add" method="post">
      <div class="mb-3">
        <label for="" class="form-label">ชื่อบทความ</label>
        <input type="text" name="name" value="" class="form-control">
